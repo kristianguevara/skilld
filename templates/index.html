@@ -1,0 +1,262 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Runkeeper Website Template | Home :: w3layouts</title>
+		<script src="http://code.jquery.com/jquery-2.0.0b1.js"></script>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/fav-icon.png') }}" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		</script>
+	    
+	    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/slider-style.css') }}" />
+		<script type="text/javascript" src="{{ url_for('static', filename='js/modernizr.custom.28468.js') }}"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="{{ url_for('static', filename='js/login.js')}}"></script>
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/jquery.mmenu.all.css')}}" />
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.mmenu.js')}}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/maps.js')}}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/parse.js')}}"></script>
+			<script type="text/javascript">
+				//	The menu on the left
+				$(function() {
+					$('nav#menu-left').mmenu();
+				});
+		</script>
+		<script type="text/javascript">
+    Parse.initialize("kRVPK8zVFtfkzYPbtYHNUNeqo47bvxfOpHG2FCIe", "URJyfR5ouJDiDFbz2vH5bKbb4GuMruH0SX1DLSiv");
+    
+    var TestObject = Parse.Object.extend("TestObject");
+    var testObject = new TestObject();
+      testObject.save({foo: "bar"}, {
+      success: function(object) {
+        $(".success").show();
+      },
+      error: function(model, error) {
+        $(".error").show();
+      }
+    });
+  </script>
+		{% for message in get_flashed_messages() %}
+    		<script>alert("{{ message }}")</script>
+  		{% endfor %}
+	</head>
+	<body ng-app="skilld" ng-controller="mapsController">
+			<div id="page">
+					<div id="header">
+						<a class="navicon" href="#menu-left"> </a>
+					</div>
+					<nav id="menu-left">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="features.html">Features</a></li>
+							<div class="clear"> </div>
+						</ul>
+					</nav>
+			</div>
+			<div class="header">
+				<div class="wrap">
+				<div class="header-left">
+					<div class="logo">
+						<a href="index.html">Skylld</a>
+					</div>
+				</div>
+				<div class="header-right">
+					<div class="top-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="features.html">Features</a></li>
+					</ul>
+				</div>
+				<div class="sign-ligin-btns">
+					<ul>
+						<li id="signupContainer">
+							<a class="signup" id="signupButton" href="#" data-toggle="modal" data-target="#myModal"><span><i>Signup</i></span></a>
+							 <div class="clear"> </div>
+				                <div id="signupBox">                
+				                    <!--<form id="signupForm">
+				                        <fieldset id="signupbody">
+				                            <fieldset>
+				                                <label for="email">Email Address <span>*</span></label>
+				                                <input type="text" name="email" id="signupemail" />
+				                            </fieldset>
+				                            <fieldset>
+				                                <label for="password">Choose Password <span>*</span></label>
+				                                <input type="password" name="password" id="signuppassword" />
+				                            </fieldset>
+				                             <fieldset>
+				                                <label for="password">Confirm Password <span>*</span></label>
+				                                <input type="password" name="password" id="signuppassword1" />
+				                            </fieldset>
+				                            <input type="submit" id="signup" value="Register Now!" />
+				                        </fieldset>
+				                    </form>-->
+				                </div>
+				            <!-- Login Ends Here -->
+						</li>
+						<li id="loginContainer"><a class="login" id="loginButton" href="#"><span><i>Login</i></span></i></a>
+							 <div class="clear"> </div>
+				                <div id="loginBox">                
+				                    <form id="loginForm">
+				                        <fieldset id="body">
+				                            <fieldset>
+				                                <label for="email">Email Address</label>
+				                                <input type="text" name="email" id="email" />
+				                            </fieldset>
+				                            <fieldset>
+				                                <label for="password">Password</label>
+				                                <input type="password" name="password" id="password" />
+				                            </fieldset>
+				                            <label class="remeber" for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>
+				                            <input type="submit" id="login" value="login" />
+				                        </fieldset>
+				                        <span><a href="#">Forgot your password?</a></span>
+				                    </form>
+				                </div>
+				            <!-- Login Ends Here -->
+						</li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="clear"> </div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			</div>
+			<div id="map-canvas">
+				<img src="{{url_for('static', filename='images/front-bg.jpg')}}" class="front-bg"/>
+				<div class="bg-message">
+					<h2>Need help?</h2>
+					<h2>Let someone fix it for you</h2>
+					<div class="bottom-container-fix">
+						<input type="text" class="searchBar" placeholder="E.g. I am looking for a plumber"/>
+						<button class="btn btn-default go-btn">Go!</button>
+					</div>
+				</div>
+				<div class="overlay-bg-map"></div>
+				<div class="wrap"> 
+					<div id="map_wrapper">
+					    <div id="map_canvas" class="mapping"></div>
+				</div>
+
+			</div>
+				<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.cslider.js') }}"></script>
+				<script type="text/javascript">
+					$(function() {
+						$('#da-slider').cslider({
+							autoplay	: true,
+							bgincrement	: 450
+						});
+					
+					});
+				</script>
+			 </div>
+			</div>
+			<!-- Trigger the modal with a button -->
+
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">Sign Up</h4>
+			      </div>
+			      <div class="modal-body">
+			      	<form>
+			        	<span>Username: </span> <input type="text" name="username" ng-model="username"/><br/>
+			        	<span>Password: </span> <input type="password" name="password" ng-model="password"/><br/>
+			        	<span>Country: </span> <input type="text" name="password" ng-model="country"/><br/>
+			        	<span>City: </span> <input type="text" name="password" ng-model="city"/><br/>
+			        	<span>Street: </span> <input type="text" name="password" ng-model="street"/><br/>
+			        	<span>Job: </span>
+			        	<select ng-model="job">
+			        		<option>Plumbing</option>
+			        		<option>Home repair</option>
+			        		<option>Electrical</option>
+			        		<option>Mechanical</option>
+			        		<option>Furniture Assembly</option>
+			        		<option>Carpentry</option>	
+			        	</select><br/>
+			        	<input type="button" ng-click="addUser()"value="Register User"/>
+			        </form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+			<div class="content">
+				<div class="footer-grids">
+				<div>
+					{% if user_list %}
+						{% for user in user_list %}
+							<p>{{user.username}} </p>
+						{% endfor %}
+					{% endif %}
+				</div>
+					<div class="wrap">
+						<div class="footer-grid">
+							<h3>Quick Links</h3>
+							<ul>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">About Features</a></li>
+								<li><a href="#">Login</a></li>
+								<li><a href="#">Sign Up</a></li>
+							</ul>
+						</div>
+						<div class="footer-grid">
+							<h3>More</h3>
+							<ul>
+								<li><a href="#">FAQ</a></li>
+								<li><a href="#">Support</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Terms and Conditions</a></li>
+							</ul>
+						</div>
+						<div class="footer-grid">
+							<h3>Connect With Us</h3>
+							<ul class="social-icons">
+								<li><a class="facebook" href="#"> </a></li>
+								<li><a class="twitter" href="#"> </a></li>
+								<li><a class="youtube" href="#"> </a></li>
+							</ul>
+							<p class="copy-right">Template by <a href="#">W3layouts</a></p>
+						</div>
+						<div class="footer-grid">
+							<h3>Newsletter</h3>
+							<p>Subscribe to our newsletter to keep up-to-date with all the latest news.</p>
+							<form>
+								<input type="text" class="text" value="Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Name';}">
+								<input type="text" class="text" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}">
+								<input type="submit" value="subscribe" />
+							</form>
+						</div>
+						<div class="clear"> </div>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>
+
